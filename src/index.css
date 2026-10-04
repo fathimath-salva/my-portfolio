@@ -1,0 +1,275 @@
+/* ============================================================
+   GLOBAL DESIGN SYSTEM — Fathimath Salva Portfolio
+   ============================================================ */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  --navbar-height: 69px;
+  /* ---- Color Palette: Ivory / Cream / Sage / Champagne ---- */
+
+  /* Backgrounds */
+  --color-bg:          #FAF9F4;
+  --color-bg-alt:      #F4F0E7;
+  --color-bg-dark:     #183D32;
+  --color-surface:     #FAF9F4;
+  --color-surface-alt: #E8EEE8;
+
+  /* Neutral tones */
+  --color-ivory:       #FAF9F4;
+  --color-cream:       #F4F0E7;
+  --color-pale-beige:  #E7E0D4;
+  --color-beige:       #D8CDBB;
+
+  /* Sage green — primary accent */
+  --color-sage:        #7E9C8D;
+  --color-sage-light:  #AFC2B8;
+  --color-sage-dark:   #285448;
+  --color-sage-muted:  #D5E0D9;
+  --color-sage-bg:     #E8EEE8;
+
+  /* Champagne gold — secondary accent */
+  --color-gold:        #C9B99A;
+  --color-gold-light:  #D8CDBB;
+  --color-gold-muted:  #E9E0D1;
+  --color-gold-ink:    #8D7857;
+
+  /* Text — dark olive / charcoal */
+  --color-text:           #183D32;
+  --color-text-secondary: #285448;
+  --color-text-muted:     #657B70;
+
+  /* Borders */
+  --color-border:       #D8CDBB;
+  --color-border-light: #E5DFD4;
+
+  /* Legacy aliases kept for all existing CSS to work without changes */
+  --color-warm-mid:    var(--color-sage);
+  --color-brown:       var(--color-sage-dark);
+  --color-dark-brown:  var(--color-bg-dark);
+  --color-charcoal:    #282e22;
+  --color-taupe:       var(--color-beige);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --section-padding-y: clamp(4rem, 8vw, 8rem);
+  --section-padding-x: clamp(1.25rem, 5vw, 6rem);
+  --container-max: 1280px;
+
+  /* Transitions */
+  --transition-fast: 0.18s ease;
+  --transition-base: 0.28s ease;
+  --transition-slow: 0.42s ease;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 4px rgba(28, 32, 24, 0.06);
+  --shadow-md:  0 4px 16px rgba(28, 32, 24, 0.09);
+  --shadow-lg:  0 12px 40px rgba(28, 32, 24, 0.12);
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  min-width: 320px;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- Typography Base ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+p {
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+}
+
+input, textarea, select {
+  font: inherit;
+}
+
+img, video, svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------- Layout Utilities ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--section-padding-x);
+}
+
+.section {
+  padding: var(--section-padding-y) 0;
+}
+
+.section--alt {
+  background-color: var(--color-bg-alt);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Focus States ---------- */
+:focus-visible {
+  outline: 2px solid var(--color-sage);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background-color: var(--color-sage-muted);
+  color: var(--color-bg-dark);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-ivory); }
+::-webkit-scrollbar-thumb { background: var(--color-beige); border-radius: 3px; }
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Pastel sage and cream art direction */
+:root {
+  --color-bg: #faf9f4;
+  --color-bg-alt: #f4f0e7;
+  --color-bg-dark: #183d32;
+  --color-surface: #fffefa;
+  --color-surface-alt: #e5ede6;
+  --color-ivory: #faf9f4;
+  --color-cream: #f4f0e7;
+  --color-pale-beige: #e5dfd2;
+  --color-beige: #d8cdbb;
+  --color-sage: #7e9c8d;
+  --color-sage-light: #afc2b8;
+  --color-sage-dark: #285448;
+  --color-sage-muted: #c5d4cc;
+  --color-sage-bg: #e5ede6;
+  --color-gold: #a9926e;
+  --color-gold-light: #c9b99a;
+  --color-gold-muted: #e4dac7;
+  --color-gold-ink: #8D7857;
+  --color-text: #183d32;
+  --color-text-secondary: #285448;
+  --color-text-muted: #647b70;
+  --color-border: #d8d4c8;
+  --color-border-light: #e5e0d5;
+  --color-warm-mid: var(--color-sage);
+  --color-brown: var(--color-sage-dark);
+  --color-dark-brown: var(--color-bg-dark);
+  --color-charcoal: #3e503e;
+  --color-taupe: var(--color-beige);
+}
+
+body { background: var(--color-bg); color: var(--color-text); }
+.section-heading__title { font-size: clamp(2.25rem, 4.5vw, 3.6rem); }
+.section-heading__label { color: #668364; }
+.section-heading__line { background-color: #b7cda9; }
+.section--alt { background: #f4f0e7; }
+.hero { background: linear-gradient(135deg, #faf9f4 0%, #f4f0e7 58%, #e5ede6 100%); }
+.hero__bg-blob--1 { background: #dce7df; }
+.hero__bg-blob--2 { background: #e8e1d2; }
+.hero__art { background: radial-gradient(ellipse at center, #e5ede6 0%, #f4f0e7 68%, transparent 69%); }
+.navbar--scrolled { background-color: rgba(250, 249, 244, .95); }
+.navbar__mobile-menu { background-color: #faf9f4; }
+.projects__internship, .mini-project-card, .cert-card, .achievement-card,
+.leadership-card, .contact__form, .about__card, .resume__mock,
+.skill-card, .skills__card, .experience-card {
+  background-color: #f8faef;
+  border-color: #d3e0c9;
+  box-shadow: 0 10px 32px rgba(71, 96, 68, .07);
+}
+.project-visual { border-color: #d2dfc7; }
+.project-visual__bg { background: var(--proj-bg, #e6efdd); }
+.project-visual__number { color: rgba(67, 94, 66, .12); }
+.project-visual__grid {
+  background-image: linear-gradient(rgba(72, 104, 70, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(72, 104, 70, .08) 1px, transparent 1px);
+}
+.project-visual__label, .project-visual__chip { background: rgba(250, 252, 244, .9); }
+.btn--primary { background-color: #285448; border-color: #285448; color: #faf9f4; }
+.btn--primary:hover { background-color: #183d32; border-color: #183d32; }
+.btn--secondary, .btn--outline { border-color: #afc2b8; background-color: #f4f0e7; }
+.contact { background: #e5ede6; }
+.contact__form-wrap { background: #fffefa; }
+.footer { background: #dce7df; color: #183d32; }
+.footer p { color: #285448; }
+.resume { background: #f4f0e7; }
+.education { background: #faf9f4; }
+.certifications, .about { background: #f0f2e9; }
+.skills { background: #f4f0e7; }
+.experience, .achievements { background: #e5ede6; }
+.leadership { background: #f4f0e7; }
