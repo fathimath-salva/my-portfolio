@@ -3,13 +3,16 @@
    ============================================================ */
 
 .navbar {
-  --navbar-height: 68px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   transition: background-color var(--transition-base), box-shadow var(--transition-base), backdrop-filter var(--transition-base);
+}
+
+.navbar__spacer {
+  display: none;
 }
 
 .navbar--scrolled {
@@ -23,7 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
+  height: calc(var(--navbar-height) - 1px);
   gap: 1rem;
 }
 
@@ -122,13 +125,12 @@
   color: var(--color-text-secondary);
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--color-border-light);
-  transition: color var(--transition-fast), padding-left var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
 .navbar__mobile-link:hover,
 .navbar__mobile-link--active {
   color: var(--color-text);
-  padding-left: 0.75rem;
 }
 
 .navbar__mobile-footer {
@@ -143,10 +145,14 @@
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
+  }
+  .navbar__spacer {
+    display: block;
+    height: var(--navbar-height);
   }
   .navbar__nav {
     display: none;
@@ -157,12 +163,14 @@
 }
 
 @media (max-width: 480px) {
-  .navbar__inner {
-    height: 60px;
+  :root {
+    --navbar-height: 61px;
   }
   .navbar__mobile-menu {
-    max-height: calc(100vh - 60px);
-    max-height: calc(100dvh - 60px);
+    max-height: calc(100vh - var(--navbar-height));
+    max-height: calc(100dvh - var(--navbar-height));
+    padding-top: clamp(1rem, 5vh, 2rem);
+    padding-bottom: clamp(1rem, 5vh, 2rem);
   }
   .navbar__mobile-link {
     font-size: 1.3rem;

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react';
 import Navbar     from './components/Navbar';
 import Footer     from './components/Footer';
 import ProjectCaseStudy from './components/ProjectCaseStudy';
@@ -28,6 +28,7 @@ import './styles/components.css';
 import './styles/editorial.css';
 import './styles/case-study.css';
 import { resolveProjectRoute } from './utils/projectRoutes';
+import { getSectionScrollTarget, scrollToSectionTarget, syncNavbarSpacer } from './utils/sectionAnchor';
 
 function currentLocation() {
   return `${window.location.pathname}${window.location.hash}`;
@@ -39,6 +40,12 @@ export default function App() {
   const route = resolveProjectRoute(pathname);
   const isProjectPath = pathname.startsWith('/projects');
 
+  useLayoutEffect(() => {
+    if (pathname === '/' && !window.location.hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  }, []);
+
   useEffect(() => {
     const handlePopState = () => setLocation(currentLocation());
     window.addEventListener('popstate', handlePopState);
@@ -46,9 +53,19 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (pathname === '/' && window.location.hash) {
-      requestAnimationFrame(() => document.querySelector(window.location.hash)?.scrollIntoView({ behavior: 'smooth' }));
-    }
+    const target = pathname === '/' && window.location.hash
+      ? getSectionScrollTarget(document.querySelector(window.location.hash))
+      : null;
+    const settleRoutePosition = () => {
+      if (target && document.getElementById('mobile-nav')) {
+        requestAnimationFrame(settleRoutePosition);
+        return;
+      }
+      syncNavbarSpacer();
+      if (target) scrollToSectionTarget(target);
+      else window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    };
+    requestAnimationFrame(settleRoutePosition);
   }, [location, pathname]);
 
   const navigate = useCallback((href) => {

@@ -4,6 +4,7 @@ import { ArrowDown, Folder, Mail, FileText } from 'lucide-react';
 import SocialLinks from '../components/SocialLinks';
 import Button from '../components/Button';
 import { personal } from '../data/portfolioData';
+import { getSectionScrollTarget, scrollToSectionTarget } from '../utils/sectionAnchor';
 
 /* -------------------------------------------------------
    Hero Section — Typography-focused, no video
@@ -14,7 +15,7 @@ export default function Hero() {
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '14%']);
 
   const scrollTo = (id) => () =>
-    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+    scrollToSectionTarget(getSectionScrollTarget(document.querySelector(id)));
 
   return (
     <section id="home" className="hero" ref={sectionRef} aria-label="Hero — introduction">

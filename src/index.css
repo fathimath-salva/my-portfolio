@@ -7,6 +7,7 @@
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
+  --navbar-height: 69px;
   /* ---- Color Palette: Ivory / Cream / Sage / Champagne ---- */
 
   /* Backgrounds */
@@ -88,7 +89,8 @@
 html {
   min-width: 320px;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  scroll-padding-top: var(--navbar-height);
+  overflow-x: clip;
 }
 
 body {
@@ -100,7 +102,7 @@ body {
   background-color: var(--color-bg);
   min-height: 100vh;
   min-width: 320px;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

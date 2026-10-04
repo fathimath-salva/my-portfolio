@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useLayoutEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { personal } from '../data/portfolioData';
+import { getSectionScrollTarget, scrollToSectionTarget, syncNavbarSpacer } from '../utils/sectionAnchor';
 
 const navLinks = [
   { label: 'Home',           href: '#home' },
@@ -16,9 +17,21 @@ const navLinks = [
 ];
 
 export default function Navbar({ isProjectPage = false, onNavigate }) {
+  const navbarRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+
+  useLayoutEffect(() => {
+    const observer = new ResizeObserver(syncNavbarSpacer);
+    if (navbarRef.current) observer.observe(navbarRef.current);
+    window.addEventListener('resize', syncNavbarSpacer);
+    syncNavbarSpacer();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', syncNavbarSpacer);
+    };
+  }, []);
 
   /* Track scroll for navbar style */
   useEffect(() => {
@@ -56,16 +69,26 @@ export default function Navbar({ isProjectPage = false, onNavigate }) {
       onNavigate(`/${href}`);
       return;
     }
-    const target = document.querySelector(href);
-    if (target) {
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 60);
-    }
+    const target = href === '#home'
+      ? null
+      : getSectionScrollTarget(document.querySelector(href));
+    if (href !== '#home' && !target) return;
+
+    const scrollAfterMenuCloses = () => {
+      if (document.getElementById('mobile-nav')) {
+        requestAnimationFrame(scrollAfterMenuCloses);
+        return;
+      }
+      syncNavbarSpacer();
+      if (target) scrollToSectionTarget(target);
+      else window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    };
+    requestAnimationFrame(scrollAfterMenuCloses);
   }, [isProjectPage, onNavigate]);
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} role="banner">
+    <>
+    <header ref={navbarRef} className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} role="banner">
       <div className="navbar__inner container">
         {/* Brand */}
         <a
@@ -165,5 +188,7 @@ export default function Navbar({ isProjectPage = false, onNavigate }) {
         )}
       </AnimatePresence>
     </header>
+    <div className="navbar__spacer" aria-hidden="true" />
+    </>
   );
 }
