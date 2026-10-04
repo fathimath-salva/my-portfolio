@@ -268,6 +268,8 @@ body {
 .project-card:hover .project-card__visual { transform:translateY(-5px) rotate(-.4deg); }
 
 @media (max-width: 900px) {
+  .hero { padding-top:0; }
+  .section[id] { scroll-margin-top:68px; }
   .hero { min-height:auto; }
   .hero__inner { position:relative; min-height:auto; grid-template-columns:minmax(0,1fr); gap:1rem; }
   .hero__name { font-size:clamp(4.8rem,12vw,8rem); }
@@ -280,7 +282,7 @@ body {
 }
 @media (max-width: 680px) {
   .section-heading__title { font-size:clamp(2.5rem,10vw,4rem); }
-  .hero { padding-top:60px; }
+  .hero { padding-top:0; }
   .hero__inner { grid-template-columns:1fr; padding-top:2.8rem; padding-bottom:4rem; }
   .hero__content { position:relative; z-index:2; }
   .hero__visual { position:relative; right:auto; bottom:auto; opacity:1; pointer-events:auto; }
@@ -334,6 +336,9 @@ body {
   .contact__grid { grid-template-columns:1fr; gap:2rem; }
   .contact .section-heading__title { font-size:clamp(4.4rem,18vw,7rem); }
   .contact__form-wrap { padding:1.2rem; }
+}
+@media (max-width: 480px) {
+  .section[id] { scroll-margin-top:60px; }
 }
 @media (max-width: 390px) {
   .hero__name { font-size:clamp(3rem,15vw,4rem); }

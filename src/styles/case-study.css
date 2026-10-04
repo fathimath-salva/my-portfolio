@@ -114,6 +114,9 @@
   .case-study__flow li { min-width:calc(50% - .5rem); max-width:none; }
   .case-study__footer { flex-wrap:wrap; justify-content:space-between; }
 }
+@media (max-width: 900px) {
+  .case-study-page { padding-top:0; }
+}
 @media (min-width: 681px) and (max-width: 900px) {
   .project-card--daily-dine { grid-template-columns:minmax(0,1fr) minmax(0,.9fr); }
 }

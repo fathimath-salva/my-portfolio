@@ -3,6 +3,7 @@
    ============================================================ */
 
 .navbar {
+  --navbar-height: 68px;
   position: fixed;
   top: 0;
   left: 0;
@@ -93,15 +94,18 @@
 
 /* Mobile menu */
 .navbar__mobile-menu {
-  position: fixed;
-  inset: 68px 0 0 0;
+  position: relative;
+  width: 100%;
+  max-height: calc(100vh - var(--navbar-height));
+  max-height: calc(100dvh - var(--navbar-height));
   background-color: var(--color-bg);
   padding: 2rem var(--section-padding-x) 2rem;
   display: flex;
   flex-direction: column;
   gap: 0;
   overflow-y: auto;
-  z-index: 999;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
 }
 
 .navbar__mobile-links {
@@ -140,6 +144,10 @@
 
 /* Responsive */
 @media (max-width: 900px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+  }
   .navbar__nav {
     display: none;
   }
@@ -153,7 +161,8 @@
     height: 60px;
   }
   .navbar__mobile-menu {
-    top: 60px;
+    max-height: calc(100vh - 60px);
+    max-height: calc(100dvh - 60px);
   }
   .navbar__mobile-link {
     font-size: 1.3rem;
