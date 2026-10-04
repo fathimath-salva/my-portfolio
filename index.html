@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      if (location.pathname === '/' && location.hash) {
+        history.replaceState(history.state, '', `${location.pathname}${location.search}`);
+      }
+      window.addEventListener('pageshow', () => {
+        if (location.pathname === '/' && !location.hash) {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        }
+      }, { once: true });
+    </script>
     <meta name="theme-color" content="#f5f0e8" />
     <meta name="description" content="Personal portfolio of Fathimath Salva, an Artificial Intelligence & Machine Learning student focused on web development, computer vision and technology projects." />
     <meta property="og:title" content="Fathimath Salva | AI & ML Engineer | Frontend Developer" />

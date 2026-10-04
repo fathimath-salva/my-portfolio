@@ -41,8 +41,14 @@ export default function App() {
   const isProjectPath = pathname.startsWith('/projects');
 
   useLayoutEffect(() => {
-    if (pathname === '/' && !window.location.hash) {
+    if (window.location.pathname === '/') {
+      // A copied or restored root URL can carry a stale section fragment.
+      // Fresh visits to the portfolio root should always begin at the hero.
+      if (window.location.hash) {
+        window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}`);
+      }
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      setLocation(currentLocation());
     }
   }, []);
 
