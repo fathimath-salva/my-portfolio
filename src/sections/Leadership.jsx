@@ -13,7 +13,7 @@ export default function Leadership() {
         <SectionHeading
           label="Leadership"
           title="Leadership & Activities"
-          subtitle="Departmental coordination roles that developed my communication, design and team management skills."
+          subtitle="College and technical activities that helped me build communication, teamwork and coordination skills. These are campus responsibilities, not employment."
         />
 
         <div className="leadership__grid">

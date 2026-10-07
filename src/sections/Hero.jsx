@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowDown, Folder, Mail, FileText } from 'lucide-react';
+import { ArrowDown, Folder, Download } from 'lucide-react';
 import SocialLinks from '../components/SocialLinks';
 import Button from '../components/Button';
 import { personal } from '../data/portfolioData';
@@ -37,9 +37,9 @@ export default function Hero() {
             transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="hero__eyebrow-line" aria-hidden="true" />
-            <span>AI / ML &nbsp;·&nbsp; CREATIVE DEVELOPMENT</span>
+            <span>AI &amp; MACHINE LEARNING ENGINEERING STUDENT</span>
           </motion.div>
-          <p className="hero__location">MANGALURU, INDIA <span>—</span> PORTFOLIO 2026</p>
+          <p className="hero__location">MANGALURU, INDIA <span>—</span> FRESHER</p>
 
           {/* Main name — largest element */}
           <motion.h1
@@ -61,20 +61,14 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           />
 
-          {/* Professional direction */}
+          {/* Student focus */}
           <motion.div
             className="hero__directions"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="hero__direction">
-              Artificial Intelligence &amp; Machine Learning
-            </p>
-            <span className="hero__direction-sep" aria-hidden="true">/</span>
-            <p className="hero__direction">
-              Frontend / Full Stack Development
-            </p>
+            <p className="hero__direction">AI &amp; Machine Learning Engineering Student</p>
           </motion.div>
 
           {/* Tagline */}
@@ -100,23 +94,23 @@ export default function Hero() {
               onClick={(e) => { e.preventDefault(); scrollTo('#projects')(); }}
               icon={<Folder size={15} />}
             >
-              View Projects
+              View My Projects
             </Button>
             <Button
               variant="secondary"
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); scrollTo('#contact')(); }}
-              icon={<Mail size={15} />}
+              href={personal.resumePath}
+              download="Fathimath_Salva_Resume.pdf"
+              icon={<Download size={15} />}
             >
-              Let's Connect
+              Download Resume
             </Button>
             <Button
               variant="ghost"
-              href={personal.resumePath}
-              target="_blank"
-              icon={<FileText size={15} />}
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); scrollTo('#contact')(); }}
+              icon={<Folder size={15} />}
             >
-              View Résumé
+              Contact Me
             </Button>
           </motion.div>
 

@@ -10,12 +10,13 @@ import { getProjectPath } from '../utils/projectRoutes';
 ------------------------------------------------------- */
 export default function Experience({ onNavigate }) {
   return (
-    <section id="experience" className="section section--alt experience" aria-label="Work experience">
+    <section id="experience" className="section section--alt experience" aria-label="Internship experience">
       <div className="container">
         <SectionHeading
           number="04"
-          label="Experience"
-          title="Professional Journey"
+          label="Internship"
+          title="Learning Through Practice"
+          subtitle="A virtual AI internship with project assignments. My professional work experience is otherwise not applicable as I begin my career."
         />
 
         <div className="experience__list">

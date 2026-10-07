@@ -3,11 +3,8 @@
 export const personal = {
   name: 'Fathimath Salva',
   nameShort: 'Salva',
-  titles: [
-    'AI & Machine Learning Engineering',
-    'Frontend / Full Stack Development',
-  ],
-  tagline: 'Building thoughtful digital experiences at the intersection of AI, technology and design.',
+  titles: ['AI & Machine Learning Engineering Student'],
+  tagline: 'Building practical AI/ML and web projects while developing my skills in technology, problem-solving, communication and leadership.',
   location: 'Mangaluru, Karnataka, India',
   email: 'salvahere12@gmail.com',
   phone: '9972582918',
@@ -19,8 +16,8 @@ export const personal = {
 
 export const about = {
   paragraphs: [
-    'I am a B.E. student specializing in Artificial Intelligence & Machine Learning, with practical experience in Python, web development, computer vision and machine learning projects.',
-    'I am interested in AI/ML, frontend development and useful digital products that create user-focused experiences. I value teamwork, coordination and continuous learning.',
+    'I am an Artificial Intelligence & Machine Learning engineering student at Srinivas Institute of Technology, graduating in 2027. Through academic and personal projects, I have explored Python, machine learning, computer vision and web development.',
+    'I enjoy turning ideas into practical projects and learning new technologies through hands-on work and certifications. College coordination activities have also helped me develop communication, teamwork and leadership skills. I am at the start of my career and eager to keep learning.',
   ],
 };
 
@@ -31,19 +28,15 @@ export const skills = [
   },
   {
     category: 'Web Development',
-    items: ['HTML', 'CSS', 'React', 'Next.js', 'Node.js'],
+    items: ['HTML', 'CSS', 'React', 'Next.js'],
   },
   {
     category: 'AI / Machine Learning',
-    items: ['Machine Learning', 'Computer Vision', 'OpenCV', 'TinyML', 'TensorFlow', 'PyTorch', 'Transformers'],
-  },
-  {
-    category: 'Databases',
-    items: ['MySQL', 'MongoDB'],
+    items: ['Machine Learning', 'Computer Vision', 'YOLO', 'OpenCV', 'TinyML', 'TensorFlow', 'PyTorch', 'Transformers'],
   },
   {
     category: 'Tools',
-    items: ['Git', 'GitHub', 'VS Code', 'Figma', 'Excel', 'Tableau'],
+    items: ['Git', 'GitHub', 'AWS', 'VS Code', 'Figma'],
   },
 ];
 
@@ -61,29 +54,7 @@ export const experience = [
     ],
     technologies: ['Python', 'OpenCV', 'Machine Learning', 'Computer Vision'],
     entryNumber: '01',
-    focus: 'AI / ML INTERNSHIP',
-  },
-  {
-    id: 'iic-coordinator',
-    role: 'IIC Coordinator',
-    company: 'IIC',
-    type: 'AIML Department · Srinivas Institute of Technology',
-    duration: 'September 2025 – September 2026',
-    highlights: [],
-    technologies: [],
-    entryNumber: '02',
-    focus: 'LEADERSHIP',
-  },
-  {
-    id: 'altius-coordinator',
-    role: 'Altius Coordinator',
-    company: 'Altius',
-    type: 'AIML Department · Srinivas Institute of Technology',
-    duration: '2025 – September 2026',
-    highlights: [],
-    technologies: [],
-    entryNumber: '03',
-    focus: 'LEADERSHIP',
+    focus: 'VIRTUAL INTERNSHIP',
   },
 ];
 
@@ -92,7 +63,7 @@ export const projects = [
     id: 'roadguard',
     number: '01',
     title: 'Road Guard',
-    subtitle: 'AI-Based Pothole Detection',
+    subtitle: 'Student Project · AI-Based Pothole Detection',
     year: '2025–2026',
     description: 'A computer vision road-safety project focused on pothole detection using YOLO and OpenCV.',
     technologies: ['Python', 'YOLO', 'OpenCV', 'Computer Vision', 'Raspberry Pi'],
@@ -124,7 +95,7 @@ export const projects = [
     id: 'tinyml-health',
     number: '02',
     title: 'TinyML Machine Health Monitor',
-    subtitle: 'Industrial Machine Health Monitoring System',
+    subtitle: 'Student Project · Industrial Machine Health Monitoring System',
     year: '2025–Present',
     description: 'An industrial machine health monitoring system exploring sensor-based machine-condition classification with TinyML.',
     technologies: ['Python', 'Machine Learning', 'TinyML', 'ESP32', 'Streamlit', 'Federated Learning'],
@@ -146,7 +117,7 @@ export const projects = [
     id: 'daily-dine',
     number: '03',
     title: 'Daily Dine',
-    subtitle: 'Restaurant Application',
+    subtitle: 'Team Project · Restaurant Application',
     year: '2026–Present',
     description: 'A restaurant application designed in Figma and developed with Next.js.',
     technologies: ['Figma', 'Next.js', 'Responsive'],

@@ -16,7 +16,7 @@ export default function About() {
             <SectionHeading
               number="01"
               label="About Me"
-              title="A curious mind building at the intersection of AI & design."
+              title="AI & Machine Learning Engineering Student"
             />
 
             <div className="about__paragraphs">

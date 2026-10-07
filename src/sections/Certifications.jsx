@@ -12,8 +12,8 @@ export default function Certifications() {
         <SectionHeading
           number="05"
           label="Certifications"
-          title="Credentials & Courses"
-          subtitle="Professional certifications and courses completed in cloud computing and machine learning."
+          title="Certifications & Courses"
+          subtitle="Credentials that document my continued learning in cloud computing, machine learning and AI."
         />
 
         <div className="certs__grid">

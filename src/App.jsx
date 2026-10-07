@@ -6,6 +6,7 @@ import Hero          from './sections/Hero';
 import About         from './sections/About';
 import Skills        from './sections/Skills';
 import Experience    from './sections/Experience';
+import Leadership    from './sections/Leadership';
 import Projects      from './sections/Projects';
 import Certifications from './sections/Certifications';
 import Education     from './sections/Education';
@@ -17,6 +18,7 @@ import './styles/hero.css';
 import './styles/about.css';
 import './styles/skills.css';
 import './styles/experience.css';
+import './styles/leadership.css';
 import './styles/projects.css';
 import './styles/certifications.css';
 import './styles/education.css';
@@ -98,8 +100,9 @@ export default function App() {
           <Hero />
           <About />
           <Skills />
-          <Experience onNavigate={navigate} />
           <Projects onNavigate={navigate} />
+          <Experience onNavigate={navigate} />
+          <Leadership />
           <Certifications />
           <Education />
           <Achievements />

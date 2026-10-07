@@ -22,11 +22,11 @@ export default function Resume() {
             <SectionHeading
               label="Résumé"
               title="View My Résumé"
-              subtitle="A full overview of my education, skills, projects and experience."
+              subtitle="A concise overview of my education, technical skills, projects, certifications and campus activities."
             />
 
             <p className="resume__note">
-              Your resume PDF is available from this page.
+              Download my resume for a summary of my fresher profile and project work.
             </p>
 
             <div className="resume__actions">

@@ -22,8 +22,8 @@ export default function Projects({ onNavigate }) {
         <SectionHeading
           number="03"
           label="Projects"
-          title="Selected Work"
-          subtitle="A selection of AI/ML and web development projects I have built or contributed to."
+          title="Projects & Practical Learning"
+          subtitle="My projects are evidence of the skills I am developing through academic, team and internship work. Each page shares the documented problem, approach, tools and contribution."
         />
 
         {/* Main projects */}
