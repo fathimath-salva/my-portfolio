@@ -104,10 +104,10 @@ export default function App() {
           <Experience onNavigate={navigate} />
           <Leadership />
           <Certifications />
+          <Contact />
           <Education />
           <Achievements />
           <Resume />
-          <Contact />
         </main>
       )}
       <Footer />

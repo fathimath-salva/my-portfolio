@@ -5,7 +5,7 @@ import { ExternalLink, Clock, Award } from 'lucide-react';
    CertificationCard — clean certificate display card
 ------------------------------------------------------- */
 export default function CertificationCard({ cert, index = 0 }) {
-  const { title, issuer, date, duration, certificateUrl } = cert;
+  const { title, issuer, date, duration, institution, programOrganizations, certificateUrl } = cert;
 
   return (
     <motion.article
@@ -33,6 +33,12 @@ export default function CertificationCard({ cert, index = 0 }) {
             </span>
           )}
         </div>
+        {institution && <p className="cert-card__institution">{institution}</p>}
+        {programOrganizations?.length > 0 && (
+          <p className="cert-card__program-organizations">
+            {programOrganizations.join(' · ')}
+          </p>
+        )}
       </div>
       <div className="cert-card__footer">
         {certificateUrl ? (

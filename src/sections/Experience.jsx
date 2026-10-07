@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading';
-import { experience } from '../data/portfolioData';
+import { experience, genAiInternship } from '../data/portfolioData';
 import { Briefcase, CheckCircle2 } from 'lucide-react';
 import { codsoftCaseStudy } from '../data/portfolioData';
 import { getProjectPath } from '../utils/projectRoutes';
@@ -10,16 +10,50 @@ import { getProjectPath } from '../utils/projectRoutes';
 ------------------------------------------------------- */
 export default function Experience({ onNavigate }) {
   return (
-    <section id="experience" className="section section--alt experience" aria-label="Internship experience">
+    <section id="internship" className="section section--alt experience" aria-label="Internship and training experience">
       <div className="container">
         <SectionHeading
           number="04"
           label="Internship"
-          title="Learning Through Practice"
-          subtitle="A virtual AI internship with project assignments. My professional work experience is otherwise not applicable as I begin my career."
+          title="Internship & Training"
+          subtitle="Virtual internship and training experience."
         />
 
         <div className="experience__list">
+          <motion.article
+            className="exp-card"
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            aria-label={`${genAiInternship.title} at ${genAiInternship.organization}`}
+          >
+            <div className="exp-card__icon" aria-hidden="true"><Briefcase size={20} /></div>
+            <div className="exp-card__body">
+              <span className="exp-card__index">01 <i>—</i> VIRTUAL INTERNSHIP</span>
+              <div className="exp-card__header">
+                <div>
+                  <h3 className="exp-card__role">{genAiInternship.title}</h3>
+                  <p className="exp-card__company">
+                    {genAiInternship.organization}
+                    <span className="exp-card__type"> · Curriculum provided by {genAiInternship.curriculumProvider}</span>
+                  </p>
+                </div>
+                <span className="exp-card__duration">{genAiInternship.duration}</span>
+              </div>
+              <p className="exp-card__highlight">{genAiInternship.period} · Srinivas Institute of Technology</p>
+              <a
+                href={genAiInternship.certificateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cert-card__link"
+                aria-label="View Gen AI Virtual Internship certificate"
+              >
+                View Certificate <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </motion.article>
+
           {experience.map((item, i) => (
             <motion.article
               key={item.id}
@@ -35,7 +69,7 @@ export default function Experience({ onNavigate }) {
               </div>
 
               <div className="exp-card__body">
-                <span className="exp-card__index">{item.entryNumber} <i>—</i> {item.focus}</span>
+              <span className="exp-card__index">{String(i + 2).padStart(2, '0')} <i>—</i> {item.focus}</span>
                 <div className="exp-card__header">
                   <div>
                     <h3 className="exp-card__role">{item.role}</h3>

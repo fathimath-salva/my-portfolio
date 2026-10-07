@@ -58,6 +58,15 @@ export const experience = [
   },
 ];
 
+export const genAiInternship = {
+  title: 'Gen AI Virtual Internship',
+  organization: 'EduSkills',
+  curriculumProvider: 'AWS Academy',
+  period: 'August – October 2026',
+  duration: '8 weeks',
+  certificateUrl: '/certificates/Gen%20AI%20Virtual%20Internship.pdf',
+};
+
 export const projects = [
   {
     id: 'roadguard',
@@ -225,6 +234,16 @@ export const codsoftCaseStudy = {
 };
 
 export const certifications = [
+  {
+    id: 'gen-ai-virtual-internship',
+    title: 'Gen AI Virtual Internship',
+    issuer: 'AWS Academy',
+    date: 'August – October 2026',
+    duration: '8-week Virtual Internship',
+    institution: 'Srinivas Institute of Technology',
+    programOrganizations: ['AICTE / Ministry of Education', 'National Internship Portal', 'EduSkills'],
+    certificateUrl: '/certificates/Gen%20AI%20Virtual%20Internship.pdf',
+  },
   {
     id: 'codsoft-ai-internship',
     title: 'Artificial Intelligence Virtual Internship',
